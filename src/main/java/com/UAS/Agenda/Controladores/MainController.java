@@ -1,4 +1,4 @@
-package main.java.com.UAS.Agenda.Controladores;
+package Controladores;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

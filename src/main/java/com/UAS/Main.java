@@ -1,5 +1,4 @@
-package Main.java;
-
+package com.UAS; // O com.UAS.Agenda.Application, si ese es tu paquete raíz
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

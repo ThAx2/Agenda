@@ -1,4 +1,5 @@
 package com.UAS; // O com.UAS.Agenda.Application, si ese es tu paquete raíz
+import Controladores.MainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,7 +14,6 @@ public class Main extends Application {
             // Cargar FXML desde resources
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/main-view.fxml"));
             Parent root = loader.load();
-
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Login");

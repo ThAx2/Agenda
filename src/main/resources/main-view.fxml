@@ -11,27 +11,30 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.control.PasswordField?>
 
-<AnchorPane prefHeight="726.0" prefWidth="644.0" style="-fx-border-radius: 15; -fx-background-image: /Images/Background.jpeg; -fx-background-size: cover; -fx-background-repeat: no-repeat; -fx-background-position: center;" styleClass="-fx-background-image: url(&quot;Images/Background.jpeg&quot;)" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.MainController">
+<AnchorPane prefHeight="726.0" prefWidth="644.0" 
+            style="-fx-border-radius: 15;" 
+            xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.MainController">
    <children>
       <ImageView cache="true" cacheHint="SCALE" fitHeight="726.0" fitWidth="668.0" pickOnBounds="true" smooth="false">
          <image>
-            <Image url="/images/Background.jpeg" />
+            <Image url="@/images/Background.jpeg" />
          </image>
       </ImageView>
       <Pane layoutX="82.0" layoutY="79.0" prefHeight="569.0" prefWidth="505.0" style="-fx-background-color: white; -fx-border-color: gray; -fx-background-radius: 9; -fx-border-radius: 10;">
          <children>
-            <TextField layoutX="84.0" layoutY="199.0" prefHeight="43.0" prefWidth="335.0" promptText="Numero de cuenta:" style="-fx-border-radius: 15; -fx-background-radius: 6; -fx-border-width: 1;">
+            <TextField fx:id="numeroCuentaField" layoutX="84.0" layoutY="199.0" prefHeight="43.0" prefWidth="335.0" promptText="Numero de cuenta:" style="-fx-border-radius: 15; -fx-background-radius: 6; -fx-border-width: 1;">
                <font>
                   <Font name="Roboto Bold" size="16.0" />
                </font>
             </TextField>
-            <TextField layoutX="84.0" layoutY="258.0" prefHeight="43.0" prefWidth="335.0" promptText="PIN" style="-fx-border-radius: 15; -fx-background-radius: 6; -fx-border-width: 1;">
-               <font>
-                  <Font name="Roboto Bold" size="16.0" />
-               </font>
-            </TextField>
-            <Button layoutX="84.0" layoutY="313.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="335.0" style="-fx-background-color: #08338f; -fx-background-radius: 9; -fx-border-radius: 15;" text="Iniciar sesion (ingresar)" textFill="WHITE" />
+            <PasswordField fx:id="pinField" layoutX="84.0" layoutY="258.0" prefHeight="43.0" prefWidth="335.0" promptText="PIN" style="-fx-border-radius: 15; -fx-background-radius: 6; -fx-border-width: 1;">
+    			<font>
+        			<Font name="Roboto Bold" size="16.0" />
+   				</font>
+			</PasswordField>
+            <Button fx:id="myButton" layoutX="84.0" layoutY="313.0" mnemonicParsing="false" onAction="#onButtonClick" prefHeight="26.0" prefWidth="335.0" style="-fx-background-color: #08338f; -fx-background-radius: 9; -fx-border-radius: 15;" text="Iniciar sesion (ingresar)" textFill="WHITE" />
             <Line endX="100.0" layoutX="-17.0" layoutY="385.0" startX="437.0" stroke="#9e9090" />
             <Hyperlink ellipsisString="https://virtuales.uas.edu.mx/fim/login/forgot_password.php" layoutX="150.0" layoutY="411.0" prefHeight="24.0" prefWidth="205.0" text="¿Has extraviado la contraseña?">
                <font>
@@ -41,10 +44,10 @@
             <Line endX="100.0" layoutX="-16.0" layoutY="463.0" startX="437.0" stroke="#9e9090" />
             <ImageView fitHeight="111.0" fitWidth="96.0" layoutX="118.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="/images/Logo.png" />
+                  <Image url="@/images/Logo.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="201.0" layoutY="67.0" prefHeight="33.0" prefWidth="168.0" text="UNIVERSIDAD" textAlignment="CENTER" textFill="#181087">
+            <Label fx:id="myLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="201.0" layoutY="67.0" prefHeight="33.0" prefWidth="168.0" text="UNIVERSIDAD" textAlignment="CENTER" textFill="#181087">
                <font>
                   <Font name="Roboto Black" size="23.0" />
                </font>

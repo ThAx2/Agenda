@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="com/UAS/Agenda/|com/UAS/Agenda/" kind="src" path="Agenda/src/main/java"/>
-	<classpathentry kind="src" path="Agenda/src/main/java/com/UAS/Agenda"/>
-	<classpathentry kind="src" path="Agenda/src/main/resources"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+	<classpathentry excluding="main/resources/" kind="src" path="src "/>
+	<classpathentry kind="src" path="src /main/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/temurin-21">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>

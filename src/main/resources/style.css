@@ -1,0 +1,18 @@
+/* Estilo normal */
+.button {
+    -fx-background-color: #2e86de;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* Cuando el mouse pasa encima */
+.button:hover {
+    -fx-background-color: #54a0ff;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0.5, 0, 0);
+}
+
+/* Cuando se presiona */
+.button:pressed {
+    -fx-background-color: #1e3799;
+}
+

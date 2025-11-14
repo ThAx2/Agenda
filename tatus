@@ -1,0 +1,35 @@
+[33mcommit 5ea5e3726f489a624c1289d9ec37d7531a05ce80[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/panel-principal[m[33m, [m[1;31morigin/feature/panel-principal[m[33m)[m
+Author: Don Alex <MundoRamdoMx@gmail.com>
+Date:   Thu Nov 13 17:26:14 2025 -0600
+
+    Animaciones - V1
+
+[33mcommit 0c4c06046d88dd7162c24f9a40cf3371f170c520[m[33m ([m[1;32mfeature/main[m[33m, [m[1;32mfeature/Registro[m[33m)[m
+Author: Don Alex <MundoRamdoMx@gmail.com>
+Date:   Thu Nov 13 01:07:05 2025 -0600
+
+    Login - Panel central, pequeña validacion con contraseña establecida
+
+[33mcommit 47fc224c8160bef835f9faa24256683164607c78[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Don Alex <MundoRamdoMx@gmail.com>
+Date:   Thu Nov 13 00:50:29 2025 -0600
+
+    Reestructuración: ahora la raíz del repo es Proyecto
+
+[33mcommit 4d9171b646c26f4d0bb69c62da3c44340b5b80ba[m
+Author: Don Alex <MundoRamdoMx@gmail.com>
+Date:   Fri Nov 7 22:27:38 2025 -0600
+
+    FEATURE: Estructura base limpia y funcional de JavaFX. Rutas corregidas.
+
+[33mcommit 162c41bf70cf7d88336666b669639b491600c655[m
+Author: Don Alex <MundoRamdoMx@gmail.com>
+Date:   Fri Nov 7 00:34:10 2025 -0600
+
+    Fix: Resueltos problemas de JavaFX y FXML
+
+[33mcommit 8ad30efc72c97e336e5dd3d3f1f13f72a7a30ef0[m[33m ([m[1;32morigin[m[33m)[m
+Author: Don Alex <MundoRamdoMx@gmail.com>
+Date:   Thu Nov 6 20:11:30 2025 -0600
+
+    Inicial: estructura login base del proyecto

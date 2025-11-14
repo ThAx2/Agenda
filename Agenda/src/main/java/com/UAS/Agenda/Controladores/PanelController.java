@@ -29,15 +29,12 @@ public class PanelController {
 
     private void addZoomEffect(Button button) {
         final Duration DURATION = Duration.millis(150);
-
         ScaleTransition scaleUp = new ScaleTransition(DURATION, button);
-        scaleUp.setToX(ZOOM_SCALE); // Usar la nueva escala 1.15
-        scaleUp.setToY(ZOOM_SCALE); 
-
+        scaleUp.setToX(ZOOM_SCALE);
+        scaleUp.setToY(ZOOM_SCALE);
         ScaleTransition scaleDown = new ScaleTransition(DURATION, button);
         scaleDown.setToX(1.0);
-        scaleDown.setToY(1.0); 
-
+        scaleDown.setToY(1.0);
         button.setOnMouseEntered(e -> {
             scaleUp.play();
             if (button != botonActivo) {
@@ -50,15 +47,10 @@ public class PanelController {
                 button.setStyle(COLOR_BASE);
             }
         });
-
-        button.setOnAction(e -> {
-            marcarBotonActivo(button);
-        });
     }
-
+    @FXML
        private void marcarBotonActivo(Button botonPresionado) {
         Button[] todosLosBotones = {BTN_HOME, BTN_Tareas, BTN_Materias, BTN_Profesores, BTN_Calendario, BTN_Solicitudes, BTN_Tramites, BTN_Ajustes};
-        
         for (Button b : todosLosBotones) {
             b.setStyle(COLOR_BASE);
         }
@@ -67,9 +59,9 @@ public class PanelController {
         botonPresionado.requestFocus(); // Establecer foco
         this.botonActivo = botonPresionado;
     }
-
     @FXML
     private void onLogoutClick() {
+    	marcarBotonActivo(BTN_LOGOUT); 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/main-view.fxml"));
             Parent root = loader.load();
@@ -88,8 +80,9 @@ public class PanelController {
         }
     } 
 
-    @FXML
-    public void initialize() {        addZoomEffect(BTN_HOME);
+   @FXML
+    public void initialize() {        
+    	addZoomEffect(BTN_HOME);
         addZoomEffect(BTN_Tareas);
         addZoomEffect(BTN_Materias);
         addZoomEffect(BTN_Profesores);

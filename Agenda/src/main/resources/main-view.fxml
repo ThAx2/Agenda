@@ -13,7 +13,11 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
+<<<<<<< Updated upstream:Agenda/src/main/resources/main-view.fxml
 <AnchorPane prefHeight="726.0" prefWidth="644.0" style="-fx-border-radius: 15;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.MainController">
+=======
+<AnchorPane prefHeight="726.0" prefWidth="644.0" style="-fx-border-radius: 15; -fx-background-image: /images/Background.jpeg; -fx-background-size: cover; -fx-background-repeat: no-repeat; -fx-background-position: center;" styleClass="-fx-background-image: url(&quot;/images/Background.jpeg&quot;)" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Controladores.MainController">
+>>>>>>> Stashed changes:src/main/resources/main-view.fxml
    <children>
       <ImageView cache="true" cacheHint="SCALE" fitHeight="726.0" fitWidth="668.0" pickOnBounds="true" smooth="false">
          <image>

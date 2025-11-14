@@ -3,7 +3,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextFormatter; 
 import javafx.stage.Stage;
-import java.util.function.UnaryOperator; 
+import java.util.function.UnaryOperator;
+import ConexionBD.ConexionBD;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -60,6 +61,8 @@ public class MainController {
     }
     @FXML
     private void onButtonClick() {
+    	ConexionBD con= new ConexionBD();
+    	con.conectar();
         String cuenta = numeroCuentaField.getText();
         String pin = pinField.getText();
         

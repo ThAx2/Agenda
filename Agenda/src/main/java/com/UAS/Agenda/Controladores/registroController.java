@@ -1,5 +1,8 @@
 package Controladores;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import ConexionBD.ConexionBD;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextFormatter; // ¡Importante!
 import javafx.scene.text.Text;
@@ -38,6 +41,8 @@ public class registroController{
 	private Button btnRegresar;
 	@FXML
 	public void initialize() {
+		cargarSemestres();
+        cargarCarreras();
 		UnaryOperator<TextFormatter.Change> filtroNomyApell= change ->{
 			String newText = change.getControlNewText();
 		if (newText.matches("[A-Za-z\\s]*")) { 
@@ -84,12 +89,44 @@ UnaryOperator<TextFormatter.Change> filtroCorreo = change -> {
 	TextFormatter<String> fnum= new TextFormatter<>(filtrocuenta);
 	TextNumCuenta.setTextFormatter(fnum);
 	TextFormatter<String> ftelefono= new TextFormatter<>(filtronumeroT);
-	TextNumCuenta.setTextFormatter(ftelefono);
+	TextTelefono.setTextFormatter(ftelefono);
 	TextFormatter<String> pinFormatter = new TextFormatter<>(filterPin);
     TextPIN.setTextFormatter(pinFormatter);
     TextFormatter<String> fcorreo = new TextFormatter<>(filtroCorreo);
     TextCorreo.setTextFormatter(fcorreo);
 	}
+    private void cargarSemestres() {
+        // 1. Crear la lista de datos (ObservableList)
+        ObservableList<String> opcionesSemestre = FXCollections.observableArrayList(
+            "1er Semestre",
+            "2do Semestre",
+            "3er Semestre",
+            "4to Semestre",
+            "5to Semestre",
+            "6to Semestre",
+            "7mo Semestre",
+            "8vo Semestre"
+        );
+
+        // 2. Enlazar la lista al ComboBox
+        cmbxSemestre.setItems(opcionesSemestre);
+        
+        // Opcional: Seleccionar el primer elemento por defecto
+        // cmbxSemestre.getSelectionModel().selectFirst(); 
+    }
+    
+    private void cargarCarreras() {
+        // 1. Crear la lista de datos (ObservableList)
+        ObservableList<String> opcionesCarrera = FXCollections.observableArrayList(
+            "Ingeniería en Software",
+            "Licenciatura en Informática",
+            "Arquitectura",
+            "Medicina"
+        );
+
+        // 2. Enlazar la lista al ComboBox
+        cmbxCarrera.setItems(opcionesCarrera);
+    }
 	@FXML
 	private void BotonActionRegresar() {
 		try {
@@ -106,5 +143,20 @@ UnaryOperator<TextFormatter.Change> filtroCorreo = change -> {
 	@FXML
 	private void BotonActionRegistrar() {
 		String nmb=Textnomb.getText();
+		String appl1=TextApell1.getText();
+		String appl2=Textapell2.getText();
+		String correo=TextCorreo.getText();
+		String numUAS=TextNumCuenta.getText();
+		String pin=TextPIN.getText();
+		String numT=TextTelefono.getText();
+		String semestre=cmbxSemestre.getSelectionModel().getSelectedItem().toString();
+		String carrera=cmbxCarrera.getSelectionModel().getSelectedItem().toString();
+		boolean registro=ConexionBD.insertarRegistro(nmb, appl1, appl2, correo, numUAS, pin, numT, semestre, carrera);
+		if(registro) {
+			System.out.println("Registro ingresado con exito");
+		}else {
+			System.out.println("Registr no ingresado");
+		}
+		
 	}
 }

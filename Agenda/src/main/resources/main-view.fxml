@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="726.0" prefWidth="644.0" style="-fx-border-radius: 15; -fx-background-image: url('/images/Background.jpeg'); -fx-background-size: cover; -fx-background-repeat: no-repeat; -fx-background-position: center;" styleClass="-fx-background-image: url(&quot;/images/Background.jpeg&quot;)" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Controladores.MainController">
+<AnchorPane prefHeight="726.0" prefWidth="644.0" style="-fx-border-radius: 15; -fx-background-image: url('/images/Background.jpeg'); -fx-background-size: cover; -fx-background-repeat: no-repeat; -fx-background-position: center;" styleClass="-fx-background-image: url(&quot;/images/Background.jpeg&quot;)" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.MainController">
    <children>
       <ImageView cache="true" cacheHint="SCALE" fitHeight="726.0" fitWidth="668.0" pickOnBounds="true" smooth="false">
          <image>
@@ -70,6 +70,11 @@
                   <Font name="Roboto" size="13.0" />
                </font>
             </Hyperlink>
+            <Label fx:id="LabelLoginFail" disable="true" layoutX="129.0" layoutY="14.0" opacity="0.87" style="-fx-background-color: #ff0000; -fx-border-radius: 25px;" text="Usuario y/o Contrseña incorrecta" textAlignment="CENTER" textFill="#890000" visible="false">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
          </children>
          <effect>
             <DropShadow />

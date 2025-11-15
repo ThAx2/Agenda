@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import java.io.IOException;
@@ -22,6 +23,8 @@ public class MainController {
     private TextField numeroCuentaField;
     @FXML
     private PasswordField pinField;
+    @FXML
+    private Label LabelLoginFail;
     @FXML
     public void initialize() {
     		UnaryOperator<TextFormatter.Change> filterCuenta = change -> {
@@ -61,23 +64,33 @@ public class MainController {
     }
     @FXML
     private void onButtonClick() {
-    	ConexionBD con= new ConexionBD();
-    	con.conectar();
-        String cuenta = numeroCuentaField.getText();
-        String pin = pinField.getText();
-        
+    	String cuenta = numeroCuentaField.getText(); // Captura el valor del campo Cuenta
+        String pin = pinField.getText();             // Captura el valor del campo PIN
         System.out.println("Login Intentado - Cuenta: " + cuenta + ", PIN: " + pin);
-        if (cuenta.equals("123") && pin.equals("456")) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Panel.fxml"));
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Panel");
-            stage.show();
-            ((Stage) LabelRegistrar.getScene().getWindow()).close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        	}
+
+        // 1. Llama al método estático para validar contra la Base de Datos
+        boolean accesoPermitido = ConexionBD.validarLogin(cuenta, pin);
+        if (accesoPermitido) {
+            // 2. ACCESO CONCEDIDO: Carga el formulario Panel
+            try {
+                // Asegúrate de tener los imports de JavaFX (Parent, FXMLLoader, Stage, Scene)
+                Parent root = FXMLLoader.load(getClass().getResource("/Panel.fxml"));
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Panel");
+                stage.show();
+                // Cierra la ventana de login
+                ((Stage) LabelRegistrar.getScene().getWindow()).close();
+                
+            } catch (IOException e) {
+                System.err.println("Error al cargar el panel de usuario.");
+                e.printStackTrace();
+            }
+        } else {
+            // 3. ACCESO DENEGADO: Muestra un mensaje de error en la interfaz
+        	LabelLoginFail.setVisible(true);
+            System.out.println("ACCESO DENEGADO: Cuenta o PIN incorrectos o problema de BD.");
+            // Implementa aquí la lógica para mostrar una alerta o mensaje en tu GUI.
         }
     }
 }

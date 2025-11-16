@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="865.0" spacing="15.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/" fx:controller="Controladores.HomeController">
+    
+    <padding><Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /></padding>
+    
+    <VBox prefHeight="530.0" prefWidth="545.0" spacing="15.0">
+        
+        <HBox alignment="CENTER" prefHeight="100.0" spacing="15.0">
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="120.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 9; -fx-padding: 10;">
+                <Label prefHeight="16.0" prefWidth="124.0" style="-fx-font-size: 11px; -fx-text-fill: #6B6B6B;" text="Tareas Vencidas" textAlignment="CENTER" />
+                <Label fx:id="lblTareasVencidas" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #E74C3C;" text="2" />
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="120.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 9; -fx-padding: 10;">
+                <Label style="-fx-font-size: 11px; -fx-text-fill: #6B6B6B;" text="Tareas para Hoy" />
+                <Label fx:id="lblTareasHoy" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #F39C12;" text="1" />
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="120.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 9; -fx-padding: 10;">
+                <Label style="-fx-font-size: 11px; -fx-text-fill: #6B6B6B;" text="Promedio General" />
+                <Label fx:id="lblPromedioGeneral" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2ECC71;" text="9.2" />
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="120.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 9; -fx-padding: 10;">
+                <Label style="-fx-font-size: 11px; -fx-text-fill: #6B6B6B;" text="Materia más Baja" />
+                <Label fx:id="lblMateriaBaja" alignment="CENTER" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #E74C3C;" text="Redes (7.8)" wrapText="true" />
+            </VBox>
+        </HBox>
+
+        <HBox prefHeight="120.0" spacing="15.0">
+            <VBox prefHeight="120.0" prefWidth="265.0" style="-fx-background-color: #E0F2F7; -fx-background-radius: 9; -fx-padding: 15; -fx-border-color: #2A73B6; -fx-border-width: 1;">
+                <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #2A73B6;" text="Próximo Examen Clave" />
+                <Label fx:id="lblExamen" style="-fx-font-weight: bold; -fx-font-size: 12px;" text="Bases de Datos (50% final)" />
+                <Label fx:id="lblExamenFecha" style="-fx-font-size: 11px; -fx-text-fill: #6B6B6B;" text="25 Noviembre, 10:00 AM" />
+                <Button mnemonicParsing="false" style="-fx-background-color: #2ECC71; -fx-text-fill: white; -fx-background-radius: 5; -fx-vbox-margin: 5 0 0 0;" text="Ver Detalle" />
+            </VBox>
+            <VBox prefHeight="120.0" prefWidth="265.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 9; -fx-padding: 15; -fx-border-color: #D9D9D9; -fx-border-width: 1;">
+                <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #2ECC71;" text="¡Nueva Calificación!" />
+                <Label fx:id="lblNuevaCalificacion" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Proyecto Final de Programación: 9.8" wrapText="true" />
+            </VBox>
+        </HBox>
+
+        <VBox prefHeight="250.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 9; -fx-padding: 15;" VBox.vgrow="ALWAYS">
+            <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Tareas con Vencimiento Cercano">
+                <VBox.margin><Insets bottom="5.0" /></VBox.margin>
+            </Label>
+            
+            <TableView fx:id="tasksNearDueDateTable" prefHeight="200.0" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colMateria" prefWidth="120.0" text="Materia">
+                        <cellValueFactory><PropertyValueFactory property="materia" /></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colTarea" prefWidth="250.0" text="Tarea">
+                        <cellValueFactory><PropertyValueFactory property="tarea" /></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colVence" prefWidth="100.0" text="Vence">
+                        <cellValueFactory><PropertyValueFactory property="vence" /></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colAccion" prefWidth="50.0" text="Ver" />
+                </columns>
+                <placeholder><Label text="No hay tareas que venzan en los próximos días." /></placeholder>
+            </TableView>
+        </VBox>
+
+    </VBox>
+
+    <VBox prefHeight="530.0" prefWidth="300.0" spacing="15.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 9; -fx-padding: 15;">
+        
+        <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Rendimiento por Materia" />
+        
+              <TableView fx:id="performanceTable" prefHeight="200.0" prefWidth="270.0">
+            <columns>
+                <TableColumn fx:id="colRendMateria" prefWidth="120.0" text="Materia">
+                    <cellValueFactory>
+                  <PropertyValueFactory property="materia" />
+               </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="colRendPromedio" prefWidth="70.0" text="Promedio">
+                    <cellValueFactory>
+                  <PropertyValueFactory property="promedio" />
+               </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="colRendAsistencia" prefWidth="80.0" text="Asistencia %">
+                    <cellValueFactory>
+                  <PropertyValueFactory property="asistencia" />
+               </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+
+        <VBox prefHeight="200.0" style="-fx-background-color: #F4F6F9; -fx-background-radius: 5;" VBox.vgrow="ALWAYS">
+            <padding><Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /></padding>
+            <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Progreso Académico General" />
+            <AnchorPane prefHeight="200.0" VBox.vgrow="ALWAYS">
+                <Label style="-fx-text-fill: #6B6B6B; -fx-padding: 5;" text="Gráfico de línea de evolución de promedio a lo largo del semestre." AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="30.0" />
+            </AnchorPane>
+        </VBox>
+        
+    </VBox>
+</HBox>

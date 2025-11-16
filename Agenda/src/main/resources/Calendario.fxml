@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="633.0" prefWidth="865.0" spacing="15.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.CalendarioController">
+    
+    <padding><Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /></padding>
+    
+    <VBox prefHeight="530.0" prefWidth="550.0" spacing="10.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 9; -fx-padding: 10;">
+        
+        <ToolBar style="-fx-background-color: transparent; -fx-border-color: #D9D9D9; -fx-border-width: 0 0 1 0;">
+            <items>
+                <Button mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: #2A73B6; -fx-font-size: 14px;" text="&lt;" />
+                <Button mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: #2A73B6; -fx-font-size: 14px;" text="&gt;" />
+                <Button mnemonicParsing="false" style="-fx-background-color: #2A73B6; -fx-text-fill: white; -fx-background-radius: 5;" text="Hoy" />
+                
+                <Label fx:id="lblFechaActual" style="-fx-font-weight: bold; -fx-font-size: 16px;" text="SEMANA DEL 10 AL 16 DE NOVIEMBRE" HBox.hgrow="ALWAYS">
+                    <HBox.margin><Insets left="15.0" right="15.0" /></HBox.margin>
+                </Label>
+                
+                <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Día" />
+                <Button mnemonicParsing="false" style="-fx-background-color: #E0F2F7; -fx-border-color: #2A73B6; -fx-border-width: 1;" text="Semana" />
+                <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Mes" />
+            </items>
+        </ToolBar>
+        
+        <GridPane fx:id="scheduleGrid" hgap="2.0" style="-fx-background-color: #D9D9D9;" vgap="2.0" VBox.vgrow="ALWAYS">
+            
+            <rowConstraints>
+                <RowConstraints percentHeight="5.0" valignment="TOP" />
+                <RowConstraints percentHeight="10.0" valignment="TOP" />
+                <RowConstraints percentHeight="10.0" valignment="TOP" />
+                <RowConstraints percentHeight="10.0" valignment="TOP" />
+                <RowConstraints percentHeight="10.0" valignment="TOP" />
+                <RowConstraints percentHeight="10.0" valignment="TOP" />
+                <RowConstraints percentHeight="10.0" valignment="TOP" />
+                <RowConstraints percentHeight="10.0" valignment="TOP" />
+                <RowConstraints percentHeight="15.0" valignment="TOP" />
+            </rowConstraints>
+            
+            <columnConstraints>
+                <ColumnConstraints hgrow="NEVER" percentWidth="8.0" /> <ColumnConstraints hgrow="ALWAYS" percentWidth="15.0" /> <ColumnConstraints hgrow="ALWAYS" percentWidth="15.0" /> <ColumnConstraints hgrow="ALWAYS" percentWidth="15.0" /> <ColumnConstraints hgrow="ALWAYS" percentWidth="15.0" /> <ColumnConstraints hgrow="ALWAYS" percentWidth="16.0" /> <ColumnConstraints hgrow="ALWAYS" percentWidth="16.0" /> </columnConstraints>
+
+            <Label style="-fx-font-weight: bold; -fx-padding: 5; -fx-alignment: CENTER;" text="Horas" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Label style="-fx-font-weight: bold; -fx-padding: 5; -fx-alignment: CENTER;" text="Lunes" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Label style="-fx-font-weight: bold; -fx-padding: 5; -fx-alignment: CENTER;" text="Martes" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <Label style="-fx-font-weight: bold; -fx-padding: 5; -fx-alignment: CENTER;" text="Miércoles" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+            <Label style="-fx-font-weight: bold; -fx-padding: 5; -fx-alignment: CENTER;" text="Jueves" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+            <Label style="-fx-font-weight: bold; -fx-padding: 5; -fx-alignment: CENTER;" text="Viernes" GridPane.columnIndex="5" GridPane.rowIndex="0" />
+            <Label style="-fx-font-weight: bold; -fx-padding: 5; -fx-alignment: CENTER;" text="Sábado" GridPane.columnIndex="6" GridPane.rowIndex="0" />
+
+            <AnchorPane style="-fx-background-color: #F4F6F9;" GridPane.columnIndex="0" GridPane.columnSpan="7" GridPane.rowIndex="1" GridPane.rowSpan="8">
+                <Label layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #6B6B6B;" text="El horario de clases y eventos se cargará dinámicamente aquí." />
+            </AnchorPane>
+        </GridPane>
+        
+    </VBox>
+
+    <VBox prefHeight="530.0" prefWidth="300.0" spacing="10.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 9; -fx-padding: 15;">
+        
+        <Label fx:id="lblDiaSeleccionado" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #333333;" text="Eventos para Viernes, 14 Nov" />
+        <Separator />
+        
+        <TableView fx:id="eventsTodayTable" prefHeight="400.0" prefWidth="270.0" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colHora" prefWidth="70.0" text="Hora">
+                    <cellValueFactory><PropertyValueFactory property="hora" /></cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="colEvento" prefWidth="200.0" text="Evento">
+                    <cellValueFactory><PropertyValueFactory property="descripcion" /></cellValueFactory>
+                </TableColumn>
+            </columns>
+            <placeholder><Label text="No hay eventos ni clases programadas para este día." /></placeholder>
+        </TableView>
+        
+        <Separator />
+
+        <Button fx:id="btnAddEvento" mnemonicParsing="false" prefWidth="270.0" style="-fx-background-color: #2ECC71; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="+ Añadir Evento Personal" />
+        
+    </VBox>
+</HBox>

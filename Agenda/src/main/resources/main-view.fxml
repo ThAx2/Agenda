@@ -11,21 +11,22 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
-
+<?import javafx.scene.control.PasswordField?>
 <AnchorPane prefHeight="726.0" prefWidth="644.0" style="-fx-border-radius: 15px; -fx-background-image: url('/images/Background.jpeg'); -fx-background-size: cover; -fx-background-repeat: no-repeat; -fx-background-position: center;" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/" fx:controller="Controladores.MainController">
     <children>
         <Pane layoutX="82.0" layoutY="79.0" prefHeight="569.0" prefWidth="505.0" style="-fx-background-color: white; -fx-border-color: gray; -fx-background-radius: 9; -fx-border-radius: 10;">
             <children>
-                <TextField fx:id="numeroCuentaField" layoutX="84.0" layoutY="199.0" prefHeight="43.0" prefWidth="335.0" promptText="Numero de cuenta:" style="-fx-border-radius: 15; -fx-background-radius: 6; -fx-border-width: 1;">
+                <TextField fx:id="matriculaField" layoutX="84.0" layoutY="199.0" prefHeight="43.0" prefWidth="335.0" promptText="Numero de cuenta:" style="-fx-border-radius: 15; -fx-background-radius: 6; -fx-border-width: 1;">
                 <font>
                     <Font name="Roboto Bold" size="16.0" />
                 </font>
                 </TextField>
-                <TextField fx:id="pinField" layoutX="84.0" layoutY="258.0" prefHeight="43.0" prefWidth="335.0" promptText="PIN" style="-fx-border-radius: 15; -fx-background-radius: 6; -fx-border-width: 1;">
+                <PasswordField fx:id="pinField" layoutX="84.0" layoutY="258.0" prefHeight="43.0" prefWidth="335.0" promptText="PIN" style="-fx-border-radius: 15; -fx-background-radius: 6; -fx-border-width: 1;">
                 <font>
+                
                     <Font name="Roboto Bold" size="16.0" />
                 </font>
-                </TextField>
+                </PasswordField>
                 <Button fx:id="myButton" layoutX="84.0" layoutY="313.0" mnemonicParsing="false" onAction="#onButtonClick" prefHeight="26.0" prefWidth="335.0" style="-fx-background-color: #08338f; -fx-background-radius: 9; -fx-border-radius: 15;" text="Iniciar sesion (ingresar)" textFill="WHITE" />
                 <Line endX="100.0" layoutX="-17.0" layoutY="385.0" startX="437.0" stroke="#9e9090" />
                 <Hyperlink ellipsisString="https://virtuales.uas.edu.mx/fim/login/forgot_password.php" layoutX="150.0" layoutY="411.0" prefHeight="24.0" prefWidth="205.0" text="¿Has extraviado la contraseña?">
